@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 	return {
 		store: {
 			demo: [
@@ -20,6 +20,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
+				// const getStarWars = async () => {
+				// 	const response = await fetch("https://www.swapi.tech/api");
+				// 	const data = await response.json();
+				// 	return data;
+				// };
+				// console.log(data);
+				// return getStarWars;
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
