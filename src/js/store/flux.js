@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore, getFavorite }) => {
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			demo: [
@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 					initial: "white"
 				}
 			],
+			person: null,
 			people: null,
 			planets: null,
 			vehicles: null
@@ -35,6 +36,20 @@ const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+			},
+			loadCharacterData: () => {
+				fetch("https://www.swapi.tech/api/people/")
+					.then(response => response.json())
+					.then(data => {
+						fetch(data)
+							.then(response => response.json())
+							.then(data => {
+								setStore({
+									person: data
+								});
+								console.log(data);
+							});
+					});
 			},
 			loadPlanetsData: () => {
 				fetch("https://www.swapi.tech/api/planets/")

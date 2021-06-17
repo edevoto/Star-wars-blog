@@ -8,20 +8,33 @@ export function PeopleList() {
 	const { people } = store;
 
 	return (
-		<ul className="carousel">
-			{!!people &&
-				people.results.map((p, i) => {
-					return (
-						<div key={i} className="card" style={{ width: "300px" }}>
-							<img src="#" className="card-img-top" />
-							<div className="card-body">
-								<h5 className="card-title">{p.name}</h5>
-								<p className="card-text">Dome text</p>
-							</div>
-						</div>
-					);
-				})}
-		</ul>
+		<div className="jumbotron d-flex justify-content-center background-people">
+			<div
+				id="carouselExampleSlidesOnly"
+				className="carousel slide d-flex justify-content-center"
+				data-ride="carousel">
+				<div className="carousel-inner">
+					{!!people &&
+						people.results.map((p, i) => {
+							return (
+								<div
+									key={i}
+									className="card cardBg carousel-item active m-5"
+									style={{ width: "250px", height: "350px" }}>
+									<img src="https://picsum.photos/200/200" className="card-img-top" />
+									<div className="card-body">
+										<h5 className="card-title">{p.name}</h5>
+										<hr />
+										<p className="card-text d-flex justify-content-end" style={{ fontSize: "8px" }}>
+											id: {p.uid}
+										</p>
+									</div>
+								</div>
+							);
+						})}
+				</div>
+			</div>
+		</div>
 	);
 }
 
