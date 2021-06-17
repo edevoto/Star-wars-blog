@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { StarshipList } from "./views/starships";
-//import { Home } from "./views/home";
+import { Home } from "./views/home";
 
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
-
+import PeopleList from "./views/people";
+import Vehicles from "./views/vehicles";
+import PlanetsList from "./views/planets";
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -19,9 +20,17 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<Switch>
 					<Route exact path="/">
-						<StarshipList />
+						<Home />
 					</Route>
-
+					<Route exact path="/people">
+						<PeopleList />
+					</Route>
+					<Route exact path="/planets">
+						<PlanetsList />
+					</Route>
+					<Route exact path="/vehicles">
+						<Vehicles />
+					</Route>
 					<Route>
 						<h1>Not found!</h1>
 					</Route>

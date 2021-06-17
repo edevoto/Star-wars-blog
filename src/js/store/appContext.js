@@ -41,7 +41,9 @@ const injectContext = PassedComponent => {
 			// fetch(planetsUrl)
 			// 	.then(response => response.json())
 			// 	.then(data => console.log(data));
-			state.actions.loadSomeData();
+			state.actions.loadPeopleData();
+			state.actions.loadPlanetsData();
+			state.actions.loadVehiclesData();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
