@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 					initial: "white"
 				}
 			],
-			vehicle: []
+			starship: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -26,7 +26,7 @@ const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 					.then(response => response.json())
 					.then(data => {
 						setStore({
-							vehicle: data
+							starship: data
 						});
 					});
 
@@ -47,6 +47,12 @@ const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+
+			addFavorite: () => {
+				//aqui a;ado la lista de favoritos...
+				//Como?
+				//Esa es la pregunta....
 			}
 		}
 	};
