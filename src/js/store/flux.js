@@ -12,21 +12,24 @@ const getState = ({ getStore, getActions, setStore, getFavorite }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			vehicle: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 			loadSomeData: () => {
-				// const getStarWars = async () => {
-				// 	const response = await fetch("https://www.swapi.tech/api");
-				// 	const data = await response.json();
-				// 	return data;
-				// };
-				// console.log(data);
-				// return getStarWars;
+				fetch("https://www.swapi.tech/api/starships")
+					.then(response => response.json())
+					.then(data => {
+						setStore({
+							vehicle: data
+						});
+					});
+
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
