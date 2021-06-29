@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			person: null,
 			people: null,
 			planets: null,
-			vehicles: null
+			vehicles: null,
+			favorites: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -77,6 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -92,10 +94,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			addFavorite: () => {
-				//aqui a;ado la lista de favoritos...
-				//Como?
-				//Esa es la pregunta....
+			addFavorite: favorite => {
+				setStore({
+					favorites: [favorite]
+				});
 			}
 		}
 	};

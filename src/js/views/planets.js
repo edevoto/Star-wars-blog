@@ -6,6 +6,7 @@ export function PlanetsList() {
 	const { store, actions } = useContext(Context);
 	const { loadSomeData } = store;
 	const { planets } = store;
+	const { addFavorite } = actions;
 	const getImgName = name => {
 		return (
 			name

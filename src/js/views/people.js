@@ -1,10 +1,11 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 
 export function PeopleList() {
 	const { store, actions } = useContext(Context);
 	const { loadSomeData } = store;
+	const { addFavorite } = store;
 	const { people } = store;
 
 	return (
@@ -28,6 +29,7 @@ export function PeopleList() {
 										<p className="card-text d-flex justify-content-end" style={{ fontSize: "8px" }}>
 											id: {p.uid}
 										</p>
+										<button className="btn btn-warning text-dark">Add to favorite</button>
 									</div>
 								</div>
 							);
