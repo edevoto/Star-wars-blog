@@ -95,9 +95,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addFavorite: favorite => {
+				getStore();
+
 				setStore({
 					favorites: [favorite]
 				});
+				console.log(favorite);
 			}
 		}
 	};

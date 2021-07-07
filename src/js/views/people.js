@@ -29,7 +29,9 @@ export function PeopleList() {
 										<p className="card-text d-flex justify-content-end" style={{ fontSize: "8px" }}>
 											id: {p.uid}
 										</p>
-										<button className="btn btn-warning text-dark">Add to favorite</button>
+										<button onClick={addFavorite} className="btn btn-warning text-dark">
+											Add to favorite
+										</button>
 									</div>
 								</div>
 							);
